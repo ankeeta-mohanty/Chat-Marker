@@ -1,0 +1,185 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f1216;
+  --panel: #171b21;
+  --panel-strong: #1d232c;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f1f5f9;
+  --muted: #99a3b3;
+  --accent: #10a37f;
+  --accent-soft: rgba(16, 163, 127, 0.18);
+  --danger: #ef4444;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(circle at top right, rgba(16, 163, 127, 0.18), transparent 32%),
+    linear-gradient(180deg, #11161b, #0b0e12);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  min-width: 380px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.popup-shell {
+  padding: 18px;
+}
+
+.hero {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.controls {
+  margin-bottom: 14px;
+}
+
+.search-field {
+  display: grid;
+  gap: 6px;
+}
+
+.search-field span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.search-field input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+  outline: none;
+  padding: 12px 14px;
+}
+
+.search-field input:focus {
+  border-color: rgba(16, 163, 127, 0.6);
+  box-shadow: 0 0 0 4px rgba(16, 163, 127, 0.12);
+}
+
+.bookmark-list {
+  display: grid;
+  gap: 12px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.bookmark-card {
+  background: linear-gradient(180deg, rgba(29, 35, 44, 0.96), rgba(23, 27, 33, 0.96));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.bookmark-meta {
+  color: var(--muted);
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.bookmark-preview {
+  line-height: 1.5;
+  margin: 0 0 12px;
+  white-space: pre-wrap;
+}
+
+.bookmark-actions,
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-row {
+  margin-bottom: 12px;
+}
+
+.tag {
+  background: var(--accent-soft);
+  border: 1px solid rgba(16, 163, 127, 0.32);
+  border-radius: 999px;
+  color: #a9f4e1;
+  padding: 5px 9px;
+}
+
+.tag-input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  flex: 1;
+  min-width: 110px;
+  padding: 8px 12px;
+}
+
+.tag-input:focus {
+  border-color: rgba(16, 163, 127, 0.6);
+  outline: none;
+}
+
+.ghost-button,
+.action-button,
+.danger-button {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.ghost-button:hover,
+.action-button:hover,
+.danger-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.action-button.primary {
+  background: rgba(16, 163, 127, 0.16);
+  border-color: rgba(16, 163, 127, 0.4);
+}
+
+.danger-button {
+  color: #fecaca;
+}
+
+.empty-state {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  color: var(--muted);
+  padding: 18px;
+  text-align: center;
+}

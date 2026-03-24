@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ChatGPT Bookmarks</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">ChatGPT Bookmarks</p>
+          <h1>Saved Messages</h1>
+        </div>
+        <button id="refreshButton" class="ghost-button" type="button">Refresh</button>
+      </header>
+
+      <section class="controls">
+        <label class="search-field" for="searchInput">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Search messages or tags">
+        </label>
+      </section>
+
+      <section id="emptyState" class="empty-state" hidden>
+        <p>No bookmarks yet. Save a ChatGPT response and it will appear here.</p>
+      </section>
+
+      <section id="bookmarksList" class="bookmark-list" aria-live="polite"></section>
+    </main>
+
+    <script src="storage.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
