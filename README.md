@@ -1,4 +1,4 @@
-📌 ChatGPT Bookmark Extension
+### 📌 ChatGPT Bookmark Extension
 
 A Chrome extension that lets users bookmark specific ChatGPT responses and manage them through an in-page right sidebar and a popup. It saves messages locally using Chrome storage and includes search, tagging, copy, and delete features in a clean, dark-mode-friendly UI that matches the ChatGPT experience.
 
