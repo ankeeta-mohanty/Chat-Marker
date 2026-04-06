@@ -15,6 +15,10 @@
   let refreshTimer = null;
   let sidebarElements = null;
 
+  function isExtensionContextValid() {
+    return typeof chrome !== "undefined" && Boolean(chrome.runtime?.id);
+  }
+
   function sanitizeTags(tags) {
     if (!Array.isArray(tags)) {
       return [];
@@ -35,15 +39,40 @@
 
   function getBookmarks() {
     return new Promise((resolve) => {
-      chrome.storage.local.get([STORAGE_KEY], (result) => {
-        resolve(Array.isArray(result[STORAGE_KEY]) ? result[STORAGE_KEY] : []);
-      });
+      if (!isExtensionContextValid()) {
+        resolve([]);
+        return;
+      }
+
+      try {
+        chrome.storage.local.get([STORAGE_KEY], (result) => {
+          if (chrome.runtime?.lastError || !isExtensionContextValid()) {
+            resolve([]);
+            return;
+          }
+
+          resolve(Array.isArray(result[STORAGE_KEY]) ? result[STORAGE_KEY] : []);
+        });
+      } catch (error) {
+        resolve([]);
+      }
     });
   }
 
   function setBookmarks(bookmarks) {
     return new Promise((resolve) => {
-      chrome.storage.local.set({ [STORAGE_KEY]: bookmarks }, () => resolve());
+      if (!isExtensionContextValid()) {
+        resolve(false);
+        return;
+      }
+
+      try {
+        chrome.storage.local.set({ [STORAGE_KEY]: bookmarks }, () => {
+          resolve(!chrome.runtime?.lastError && isExtensionContextValid());
+        });
+      } catch (error) {
+        resolve(false);
+      }
     });
   }
 
@@ -488,4 +517,6 @@
   loadBookmarks();
   refreshButtons();
 })();
+
+
 
