@@ -131,6 +131,10 @@
       return false;
     }
 
+    if (node.closest(`#${SIDEBAR_ROOT_ID}`)) {
+      return false;
+    }
+
     const text = node.innerText.trim();
     if (!text || text.length < 20) {
       return false;
@@ -517,6 +521,7 @@
   loadBookmarks();
   refreshButtons();
 })();
+
 
 
 
