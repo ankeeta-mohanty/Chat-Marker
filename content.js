@@ -322,7 +322,7 @@
     const tagInput = document.createElement("input");
     tagInput.className = "chatgpt-bookmark-tag-input";
     tagInput.type = "text";
-    tagInput.placeholder = "comma,separated,tags";
+    tagInput.placeholder = "Add tags like: important, ui, notes";
     tagInput.value = (bookmark.tags || []).join(", ");
     tagInput.setAttribute("aria-label", "Edit bookmark tags");
 
@@ -488,3 +488,4 @@
   loadBookmarks();
   refreshButtons();
 })();
+
